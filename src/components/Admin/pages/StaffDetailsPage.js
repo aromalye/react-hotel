@@ -1,19 +1,17 @@
 import Footer from "../../customer/components/Footer/Footer";
 import Navbarx from "../../customer/components/Navbar/Navbar";
-import Sidebar from "../../customer/components/Sidebar/Sidebar";
 import AdminNav from "../components/AdminNav/AdminNav";
-import CustomerDetails from "../components/CustomerDetails/CustomerDetails";
-import ManagerDetails from "../components/ManagerDetails/ManagerDetails";
+import StaffDetails from "../components/StaffDetails";
 
 
-function Adminpage() {
+function StaffDetailsPage() {
     return(
         <div>
             < Navbarx />
             < AdminNav />
-            < ManagerDetails />
+            < StaffDetails />
             < Footer />
         </div>
     )
 }
-export default Adminpage;
+export default StaffDetailsPage;

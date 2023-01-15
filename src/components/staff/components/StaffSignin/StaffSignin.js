@@ -1,10 +1,14 @@
 import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Link ,useNavigate } from 'react-router-dom';
+
 
 
 
 function StaffSignin() {
+
+    const navigate = useNavigate()
 
     const [data,setData] = useState({
         username:"",
@@ -14,6 +18,8 @@ function StaffSignin() {
     function submit(e) {
         e.preventDefault();
         console.log(data)
+        navigate("/staff")
+
     }
 
     function handle(e) {
@@ -43,9 +49,13 @@ function StaffSignin() {
                 <Form.Control type="password" placeholder="Password" />
             </Form.Group>
 
+            <p>New here ? <Link to="/staff/register"> Register</Link></p>
+
+
             <Button size="sm" variant="primary" type="submit">
                 Sign in
             </Button>
+            
             </Form>
         </div>
     )

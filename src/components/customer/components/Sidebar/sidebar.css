@@ -1,9 +1,10 @@
 .sidebar{
     /* background-color: rgb(207, 219, 219); */
     width: 27%;
-    position: absolute;
-    top: 120px;
-    right: 20px;
+    margin: 20px;
+    /* position: absolute; */
+    /* top: 50px; */
+    /* left: 75%; */
     /* border: 1px solid red; */
     border-radius: 5px;
     padding: 10px;

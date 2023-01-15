@@ -5,7 +5,7 @@ import CustomerDetails from "../../Admin/components/CustomerDetails/CustomerDeta
 
 
 
-function Managerpage() {
+function ManagerChefPage() {
     return(
         <div>
             < Navbarx />
@@ -16,4 +16,4 @@ function Managerpage() {
         </div>
     )
 }
-export default Managerpage;
+export default ManagerChefPage;

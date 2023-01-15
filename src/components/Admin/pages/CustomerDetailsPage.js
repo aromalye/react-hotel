@@ -3,17 +3,17 @@ import Navbarx from "../../customer/components/Navbar/Navbar";
 import Sidebar from "../../customer/components/Sidebar/Sidebar";
 import AdminNav from "../components/AdminNav/AdminNav";
 import CustomerDetails from "../components/CustomerDetails/CustomerDetails";
-import ManagerDetails from "../components/ManagerDetails/ManagerDetails";
 
 
-function Adminpage() {
-    return(
+function CustomerDetailsPage() {
+    return (
         <div>
             < Navbarx />
             < AdminNav />
-            < ManagerDetails />
+            < CustomerDetails />
             < Footer />
+            {/* < Sidebar /> */}
         </div>
     )
 }
-export default Adminpage;
+export default CustomerDetailsPage;

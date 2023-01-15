@@ -1,21 +1,33 @@
-import Nav from 'react-bootstrap/Nav';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-import "./footer.css"
 
 
 
 function Footer() {
     return(
-        <div className='footer'>
-            <Nav className="me-auto">
-                <Nav.Link >Home</Nav.Link>
-                <Nav.Link >About</Nav.Link>
-                <Nav.Link >Services</Nav.Link>
-                <Nav.Link >Team</Nav.Link>
-                <Nav.Link >Contact</Nav.Link>
-                <Nav.Link >| hotelx © 2022 - 2023 All rights reserved</Nav.Link>
-            </Nav>
-        </div>
+        <div>
+        <Row className='mt-5' style={{backgroundColor:'#fefae0',color:'black'}}>
+        
+        <Col align='center' style={{float:'left'}} className='my-5' lg={6} >
+           <p style={{color:'black',fontWeight:'bold'}}>CONTACT</p>
+           <p style={{color:'green'}}>hotelx@gmail.com</p>
+        </Col>
+
+        <Col align='center' style={{float:'left'}} className='my-5' lg={6} >
+           <p style={{color:'black',fontWeight:'bold'}}>SOCIALIZE</p>
+           <p style={{color:'green'}}>https://facebook.com/hotelx</p>
+           <p style={{color:'green'}}>https://linkedin.com/hotelx</p>
+        </Col>
+     </Row>
+
+     <Row  style={{backgroundColor: 'black' ,color:'beige'}}>
+       
+        <Col align='center' style={{float:'left'}} className='my-5' lg={12} >
+        <p style={{color:'grey',fontWeight:'bold'}}>Copyright hotelx © 2022 - 2023 All rights reserved</p>
+        </Col>
+     </Row>
+     </div>
     )
 }
 export default Footer;

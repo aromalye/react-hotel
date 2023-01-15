@@ -4,10 +4,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import "../../../customer/components/Register/register.css"
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 function StaffRegister() {
+
+    const navigate = useNavigate()
 
     const [data,setData] = useState({
         username:"",
@@ -21,10 +24,63 @@ function StaffRegister() {
         address:"",
       })
 
+    // for validation
+    const[usernameErr, setNameErr] = useState({})
+    const[idtypeErr, setIDTypeErr] = useState({})
+    const[genderErr, setGenderErr] = useState({})
+
+
+
+    const formValidation = () => {
+
+        const usernameErr={}
+        const idtypeErr={}
+        const genderErr ={}
+
+
+        let isValid = true
+
+        if (!data.username){
+            usernameErr.short_fname = '* username is a requires field'
+            isValid = false
+            console.log("doneeee")
+        }else {
+            console.log("haaa")
+        }
+
+        if (!data.iDType){
+            idtypeErr.short_fname = '* ID Type is a requires field'
+            isValid = false
+            console.log("doneeee")
+        }else {
+            console.log("haaa")
+        }
+
+        if (!data.gender){
+            genderErr.short_fname = '* Gender is a requires field'
+            isValid = false
+            console.log("doneeee")
+        }else {
+            console.log("haaa")
+        }
+
+        setNameErr(usernameErr)
+        setIDTypeErr(idtypeErr)
+        setGenderErr(genderErr)
+
+        return isValid
+        
+
+    }
+
 
     function submit(e) {
         e.preventDefault();
-        console.log(data)
+        const isValid = formValidation()
+        if (isValid) {
+            console.log(data)
+            navigate("/staff/signin")
+        }
     }
 
     function handle(e) {
@@ -47,6 +103,13 @@ function StaffRegister() {
             <Form.Group value={data.username} onChange={(e) => handle(e) } className="mb-3" controlId="username">
                 <Form.Label>User Name</Form.Label>
                 <Form.Control type="text" placeholder="Enter username" />
+            {Object.keys(usernameErr).map((key)=>{
+            return <div style={{color:'red'}} >{usernameErr[key]}</div> })}
+            </Form.Group>
+
+            <Form.Group value={data.phone} onChange={(e) => handle(e) } className="mb-3" controlId="phone">
+                <Form.Label>Phone Number</Form.Label>
+                <Form.Control type="number" placeholder="Enter Phone number" />
             </Form.Group>
 
             <Form.Group value={data.password} onChange={(e) => handle(e) } className="mb-3" controlId="password">
@@ -63,11 +126,6 @@ function StaffRegister() {
 
             <Col>
 
-            <Form.Group value={data.phone} onChange={(e) => handle(e) } className="mb-3" controlId="phone">
-                <Form.Label>Phone Number</Form.Label>
-                <Form.Control type="number" placeholder="Enter Phone number" />
-            </Form.Group>
-
             <Form.Group className="mb-3" controlId="iDType">
                 <Form.Select  value={data.iDType} onChange={(e) => handle(e) } className='my-3' aria-label="Default select example">
                 <option>ID type</option>
@@ -75,6 +133,8 @@ function StaffRegister() {
                 <option value="pan" >PAN </option>
                 <option value="driving licence">Driving Licence</option>
                 </Form.Select>
+                {Object.keys(idtypeErr).map((key)=>{
+            return <div style={{color:'red'}} >{idtypeErr[key]}</div> })}
             </Form.Group>
 
             <Form.Group value={data.iDNumber} onChange={(e) => handle(e) } className="mb-3" controlId="iDNumber">
@@ -97,6 +157,8 @@ function StaffRegister() {
                     name="gender"
                     id="gender"
                 /> 
+                {Object.keys(genderErr).map((key)=>{
+            return <div style={{color:'red'}} >{genderErr[key]}</div> })}
             </div>
 
             <Form.Group value={data.address} onChange={(e) => handle(e) } className="mb-3" controlId="address">
@@ -104,8 +166,13 @@ function StaffRegister() {
                 <Form.Control as="textarea" rows={3}  />
             </Form.Group>
 
+            <p>Already have an Account? <Link to="/staff/signin"> Sign in</Link></p>
+
+
             </Col>
             </Row>
+
+
             <Button size="sm" variant="primary" type="submit">
                 Sign up
             </Button>
